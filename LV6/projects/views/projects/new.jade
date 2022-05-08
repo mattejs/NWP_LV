@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddProject(name="addproject",method="post",action="/projects")
+		p Name: 
+			input#inputName(type="text", placeholder="Project name", name="name")
+		p Description: 
+			input#inputDescription(type="text", placeholder="Description", name="description")
+		p Price:
+			input#inputPrice(type="number", placeholder="123456", name="price")
+		p Finished Tasks: 
+			input#inputFinishedTasks(type="text", placeholder="Finished tasks", name="finishedTasks")
+		p Start Date: 
+			input#inputStartDate(type="date", name="startdate")
+		p End Date: 
+			input#inputEndDate(type="date", name="enddate")
+		p
+			button#btnSubmit(type="submit") Submit

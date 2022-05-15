@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+	h1.
+		Project ID #{projects._id}
+	form(action='/projects/#{projects._id}/addmember',method='post',name='updateproject',enctype='application/x-www-form-urlencoded')
+		p Add member: 
+			select(name="members") 
+				for user in users 
+					option(value=user.mail selected=user.mail) #{user.mail}
+		p
+			input(type='hidden',value='PUT',name='_method')
+		p
+			button#btnSubmit(type='submit').
+				Add

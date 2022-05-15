@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddProject(name="addproject",method="post",action="/projects")
+		input(type="hidden" name="owner" value="#{userId}")
+		p Name: 
+			input#inputName(type="text", placeholder="Project name", name="name")
+		p Description: 
+			input#inputDescription(type="text", placeholder="Description", name="description")
+		p Price:
+			input#inputPrice(type="number", placeholder="123456", name="price")
+		p Finished Tasks: 
+			input#inputFinishedTasks(type="text", placeholder="Finished tasks", name="finishedTasks")
+		p Archived:			 
+			input#inputArchived(type="checkbox" name="archived" value="true")
+		p Start Date: 
+			input#inputStartDate(type="date", name="startDate")
+		p End Date: 
+			input#inputEndDate(type="date", name="endDate")
+		p
+			button#btnSubmit(type="submit") Submit

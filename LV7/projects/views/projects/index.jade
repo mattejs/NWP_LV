@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    a(href='/projects/new')
+        button(type="button") Add new project
+    br
+    br 
+    a(href='projects/owner') My projects (Owner) 
+    br 
+    a(href='projects/member') My projects (Member) 
+    br 
+    a(href='projects/archive') Archive
+    table(border='1')
+        thread
+            tr: th Name 
+                th Description
+                th Price
+                th Finished Tasks
+                th Members
+                th Start Date
+                th End Date
+                th Edit 
+                th Show 
+                th Delete
+                th Add
+        tbody 
+            each project, i in projects            
+                tr
+                    td= project.name
+                    td= project.description
+                    td= project.price
+                    td= project.finishedTasks
+                    td= project.members                    
+                    td= project.startDate
+                    td= project.endDate                 
+                    td
+                        a(href='/projects/#{project._id}/edit') Edit
+                    td
+                        a(href='/projects/show/#{project._id}') Show
+                    td
+                        form(action='/projects/#{project._id}/',method='post',enctype='application/x-www-form-urlencoded')                                        
+                            input(type='hidden',value='DELETE',name='_method')
+                            button(type='submit').
+                                Delete
+                    td
+                        a(href='/projects/#{project._id}/addmember') Add Member

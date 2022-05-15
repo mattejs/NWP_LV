@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1.
+        Project #{project._id}
+    p Name: #{project.name}
+    p Owner ID: #{project.owner}
+    p Description: #{project.description}
+    p Price: #{project.price}
+    p Finished tasks: #{project.finishedTasks}
+    p Archived: #{project.archived}
+    p Members: #{project.members}
+    p Start Date: #{project.startDate}
+    p End Date: #{project.endDate}
+    a(href='/projects/')
+        button(type="button") Back
